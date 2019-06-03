@@ -1,16 +1,29 @@
 <!DOCTYPE html>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <div id="app">
-    <h1>{{greeting}}</h1>
+    <div class="container">
+        <form class="mt-5">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" v-model="email" class="form-control form-control-lg">
+            </div>
+            <button type="submit" @click.prevent="process" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 </div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script>
-    new Vue({
+    const vm = new Vue({
         el: '#app',
         data: {
-            greeting: 'Hello from Vue!'
+           email: "chris@email.com"
+        },
+        methods: {
+            process: (e) => {
+                alert(`Submitted ${vm.email}`)
+            }
         }
     })
 </script>
